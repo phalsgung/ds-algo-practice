@@ -1,0 +1,28 @@
+Literal
+Namespaces
+Decorators
+Lambda functions
+List Comprehensions
+Dict Comprehensions 
+Generators
+Iterators
+Object Slicing
+Multi threading
+Async Flask APIs
+Collections
+PEP8 Standards
+Event-driven programming
+Pytest - Unit testing framework
+Django - ManyToMany fields, joining multiple models, serializers.py
+SQLCache
+
+
+
+Types of Methods:
+	Instance Method [Called on instance of object, instance is implicity passed]
+	Class Method [Called both object and class directly, Class implicitly passed]
+	Static Method [Called on class only, nothing implicitly passed]
+
+
+
+
