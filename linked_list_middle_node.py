@@ -31,13 +31,29 @@ class LinkedList:
 
 	def __repr__(self):
 		ll_str = ""
+		for value in self:
+			if ll_str != "":
+				ll_str+=" -> "
+			ll_str+=value
+
+		return f"<LinkedList({self._length}) [{ll_str}]>"
+
+	def __iter__(self):
+		curr_node = self._head
+		while(curr_node):
+			yield curr_node.value
+			curr_node=curr_node.next
+
+	def __next__(self):
+		ll_str = ""
 		curr_node = self._head
 		while(curr_node):
 			if ll_str != "":
 				ll_str+=" -> "
 			ll_str+=curr_node.value
 			curr_node=curr_node.next
-		return f"<LinkedList({self._length}) [{ll_str}]>"
+			return ll_str
+		raise StopIteration
 
 	def add_node_at_begin(self, value):
 		new_node = LinkedListNode(value)
@@ -168,7 +184,10 @@ def main():
 	# ll1.delete_node_at_end()
 	ll1.delete_node_at(3)
 	# ll1.delete_node_at_begin()
-	print(ll1)
+	# print(ll1)
+	print("Heree")
+	for i in ll1:
+		print(i)
 
 if __name__ == '__main__':
 	main()
