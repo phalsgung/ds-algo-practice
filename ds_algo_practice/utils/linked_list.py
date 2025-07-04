@@ -55,6 +55,12 @@ class LinkedList:
 			return ll_str
 		raise StopIteration
 
+	def to_list(self):
+		ll_list = []
+		for value in self:
+			ll_list.append(value)
+		return ll_list
+
 	def add_node_at_begin(self, value):
 		new_node = LinkedListNode(value)
 		# empty LL
@@ -66,7 +72,7 @@ class LinkedList:
 		# Increment LL length
 		self._length += 1
 
-	def add_node_at(self, value, index=None):
+	def add_node(self, value, index=None):
 		if index == None:
 			# add at end
 			self.add_node_at_end(value)
@@ -120,7 +126,10 @@ class LinkedList:
 		# Decrement LL length
 		self._length -= 1
 
-	def delete_node_at(self, index=None):
+	def delete_node(self, index=None):
+		if index is None:
+			index = self._length - 1
+
 		if index > self._length:
 			raise Exception("Given Index bigger than LinkedList Length")
 
@@ -170,24 +179,3 @@ class LinkedList:
 	@property
 	def length(self):
 		return self._length
-
-def main():
-	ll1 = LinkedList()
-	ll1.add_node_at_begin("A")
-	ll1.add_node_at("B")
-	ll1.add_node_at("C")
-	ll1.add_node_at("D")
-	ll1.add_node_at_end("E")
-	# ll1.add_node_at("Z", 4)
-	print(ll1)
-
-	# ll1.delete_node_at_end()
-	ll1.delete_node_at(3)
-	# ll1.delete_node_at_begin()
-	# print(ll1)
-	print("Heree")
-	for i in ll1:
-		print(i)
-
-if __name__ == '__main__':
-	main()
