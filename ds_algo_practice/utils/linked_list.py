@@ -72,26 +72,24 @@ class LinkedList:
 		# Increment LL length
 		self._length += 1
 
-	def add_node(self, value, index=None):
-		if index == None:
+	def add_node(self, value, index:int=None):
+		if index is not None and index > self._length:
+			raise Exception("Given Index bigger than LinkedList Length")
+
+		if index == 0:
+			self.add_node_at_begin(value)
+		elif index is None or index == self._length:
 			# add at end
 			self.add_node_at_end(value)
-		elif index == 0:
-			self.add_node_at_begin(value)
+		
 		else:
 			# add at index position
 			# iterate upto index position
 			cur_idx = 0
 			cur_node = self._head
-			while(cur_node and cur_node.next != None):
-				if cur_idx+1 == index:
-					# break before reaching index
-					break
+			while(cur_idx<index):
 				cur_node = cur_node.next
 				cur_idx+=1
-
-			if cur_idx+1 != index:
-				raise Exception("Given Index bigger than LinkedList Length")
 
 			new_node = LinkedListNode(value)
 			new_node.next = cur_node.next
@@ -104,6 +102,7 @@ class LinkedList:
 		if self._head is None:
 			new_node = LinkedListNode(value)
 			self._head = new_node
+			self._length += 1
 			return
 
 		# iterate to end
@@ -126,14 +125,14 @@ class LinkedList:
 		# Decrement LL length
 		self._length -= 1
 
-	def delete_node(self, index=None):
+	def delete_node(self, index:int=None):
 		if index is None:
 			index = self._length - 1
 
 		if index > self._length:
 			raise Exception("Given Index bigger than LinkedList Length")
 
-		if index == self._length-1 or index == None:
+		if index == self._length-1 or index is None:
 			# delete last node
 			self.delete_node_at_end()
 		elif index == 0:
@@ -173,7 +172,7 @@ class LinkedList:
 		# Decrement LL length
 		self._length -= 1
 
-	def get_node_at(self, index):
+	def get_node_at(self, index:int):
 		pass
 
 	@property
