@@ -1,3 +1,5 @@
+import math
+
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         if str1 == str2:
@@ -15,10 +17,3 @@ class Solution:
             return str1[:gcd_num]
         else:
             return ""
-
-
-if __name__ == "__main__":
-    str1 = "ABABAB"
-    str2 = "ABAB"
-    output = gcdOfStrings(str1, str2)
-    print(output)

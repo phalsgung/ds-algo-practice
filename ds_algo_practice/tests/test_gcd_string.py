@@ -9,7 +9,7 @@ from ds_algo_practice.gcd_string import Solution
         ("ABCABC", "ABC", "ABC"),
         ("LEET", "CODE", ""),
         ("AAAAAB", "AAA", ""),
-        ("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXX")
+        ("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXX")
     ]
 )
 def testGcdOfStrings(str1, str2, expected_output):
